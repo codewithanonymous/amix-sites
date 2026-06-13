@@ -1,12 +1,12 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, CalendarCheck, CheckCircle2, ExternalLink, Sparkles } from "lucide-react";
-import { getProject, projects } from "@/config/projects";
+import { getProject, projects, type Project } from "@/config/projects";
 import { BlurReveal } from "@/components/fx/BlurReveal";
 import { GradientMesh } from "@/components/fx/GradientMesh";
 import { CTAStrip } from "@/components/sections/CTAStrip";
 
 export const Route = createFileRoute("/projects/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { project: Project } => {
     const project = getProject(params.slug);
     if (!project) throw notFound();
     return { project };
