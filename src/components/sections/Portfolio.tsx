@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { BlurReveal } from "@/components/fx/BlurReveal";
-import { GlassCard } from "@/components/fx/GlassCard";
 import { SectionHeading } from "@/components/fx/SectionHeading";
 import { ArrowUpRight } from "lucide-react";
 
@@ -20,15 +19,15 @@ export function Portfolio({ limit }: { limit?: number }) {
       <BlurReveal>
         <SectionHeading
           eyebrow="Selected Work"
-          title={<>Products & platforms <span className="gradient-text">we've shipped</span></>}
+          title={<>Products & platforms <em className="italic gradient-text-static">we've shipped</em></>}
         />
       </BlurReveal>
 
       <div className="mx-auto mt-14 grid max-w-7xl gap-5 px-4 md:grid-cols-2 lg:grid-cols-3">
         {list.map((it, i) => (
           <BlurReveal key={it.title} delay={i * 0.06}>
-            <GlassCard tilt={false} glow="purple" className="group overflow-hidden p-0">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
+            <div className="group overflow-hidden rounded-3xl bg-white border border-foreground/8 shadow-soft hover:shadow-[0_30px_70px_-30px_rgba(139,92,246,0.35)] hover:-translate-y-1 hover:border-accent/25 transition-all duration-500">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={it.img}
                   alt={`${it.title} — ${it.category} case study preview`}
@@ -38,21 +37,20 @@ export function Portfolio({ limit }: { limit?: number }) {
                   height={675}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                <span className="absolute top-3 left-3 rounded-full glass px-2.5 py-1 text-[10px] font-semibold tracking-wider uppercase">{it.category}</span>
+                <span className="absolute top-3 left-3 rounded-full bg-white/90 backdrop-blur px-2.5 py-1 text-[10px] font-semibold tracking-[0.16em] uppercase text-foreground/80">{it.category}</span>
               </div>
               <div className="p-5">
-                <h3 className="font-display text-lg font-semibold">{it.title}</h3>
+                <h3 className="font-display text-xl text-foreground">{it.title}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{it.outcome}</p>
               </div>
-            </GlassCard>
+            </div>
           </BlurReveal>
         ))}
       </div>
 
       {limit && (
         <div className="mt-10 text-center">
-          <Link to="/portfolio" className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/90 hover:text-foreground">
+          <Link to="/portfolio" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all">
             See full portfolio <ArrowUpRight className="size-4" />
           </Link>
         </div>

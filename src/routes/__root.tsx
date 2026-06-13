@@ -36,16 +36,16 @@ const WEBSITE_JSONLD = {
 
 function NotFoundComponent() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center px-4">
-      <div className="glass gradient-border max-w-md rounded-3xl p-10 text-center glow-purple">
-        <h1 className="font-display text-7xl font-bold gradient-text">404</h1>
-        <h2 className="mt-3 text-xl font-semibold">Page not found</h2>
+    <div className="relative flex min-h-screen items-center justify-center px-4 bg-surface">
+      <div className="glass-strong max-w-md rounded-3xl p-10 text-center">
+        <h1 className="font-display text-7xl gradient-text-static">404</h1>
+        <h2 className="mt-3 font-sans text-xl font-semibold">Page not found</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           The page you're looking for doesn't exist or has been moved.
         </p>
         <Link
           to="/"
-          className="mt-6 inline-flex items-center justify-center rounded-full bg-cyber px-5 py-2.5 text-sm font-semibold text-primary-foreground glow-blue"
+          className="mt-6 inline-flex items-center justify-center rounded-full bg-cyber px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_30px_-8px_rgba(99,102,241,0.6)]"
         >
           Go home
         </Link>
@@ -58,16 +58,16 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   return (
-    <div className="relative flex min-h-screen items-center justify-center px-4">
-      <div className="glass gradient-border max-w-md rounded-3xl p-10 text-center">
-        <h1 className="font-display text-xl font-semibold">This page didn't load</h1>
+    <div className="relative flex min-h-screen items-center justify-center px-4 bg-surface">
+      <div className="glass-strong max-w-md rounded-3xl p-10 text-center">
+        <h1 className="font-sans text-xl font-semibold">This page didn't load</h1>
         <p className="mt-2 text-sm text-muted-foreground">
           Something went wrong. Try refreshing or head back home.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => { router.invalidate(); reset(); }}
-            className="rounded-full bg-cyber px-5 py-2.5 text-sm font-semibold text-primary-foreground glow-blue"
+            className="rounded-full bg-cyber px-5 py-2.5 text-sm font-semibold text-white"
           >
             Try again
           </button>
@@ -83,18 +83,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
-      { name: "theme-color", content: "#050816" },
-      { title: "AMIX SITES — Modern studio for Web, SaaS & CloudSoftware" },
+      { name: "theme-color", content: "#ffffff" },
+      { title: "AMIX SITES — Modern studio for Web, SaaS & Cloud Software" },
       { name: "description", content: site.description },
       { name: "author", content: site.name },
       { property: "og:site_name", content: site.name },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "AMIX SITES — Modern studio for Web, SaaS & CloudSoftware" },
-      { name: "twitter:title", content: "AMIX SITES — Modern studio for Web, SaaS & CloudSoftware" },
-      { name: "description", content: "AMIX Forge builds intelligent software solutions for modern businesses, offering web development, SaaS products, and specialized systems." },
-      { property: "og:description", content: "AMIX Forge builds intelligent software solutions for modern businesses, offering web development, SaaS products, and specialized systems." },
-      { name: "twitter:description", content: "AMIX Forge builds intelligent software solutions for modern businesses, offering web development, SaaS products, and specialized systems." },
+      { property: "og:title", content: "AMIX SITES — Modern studio for Web, SaaS & Cloud Software" },
+      { name: "twitter:title", content: "AMIX SITES — Modern studio for Web, SaaS & Cloud Software" },
+      { property: "og:description", content: "AMIX SITES builds modern digital products that scale — web, SaaS, HRM, school ERP, and cloud." },
+      { name: "twitter:description", content: "AMIX SITES builds modern digital products that scale — web, SaaS, HRM, school ERP, and cloud." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/mJGFwV6BcRTxsmbmqohjh4OJadE2/social-images/social-1779468098635-.AmixSitesDesktop.webp" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/mJGFwV6BcRTxsmbmqohjh4OJadE2/social-images/social-1779468098635-.AmixSitesDesktop.webp" },
     ],
@@ -102,9 +101,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
+      { rel: "preconnect", href: "https://images.unsplash.com", crossOrigin: "" },
+      { rel: "preconnect", href: "https://cdn.simpleicons.org", crossOrigin: "" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Sora:wght@500;600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&display=swap",
       },
     ],
     scripts: [
@@ -137,7 +138,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <a href="#main" className="sr-only focus:not-sr-only fixed left-3 top-3 z-[100] glass px-3 py-2 rounded-md text-sm">
+      <a href="#main" className="sr-only focus:not-sr-only fixed left-3 top-3 z-[100] glass-strong px-3 py-2 rounded-md text-sm">
         Skip to content
       </a>
       <SmoothScroll />

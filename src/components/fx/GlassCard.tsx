@@ -9,7 +9,7 @@ type Props = React.HTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode;
 };
 
-/** Glassmorphic card with optional 3D tilt + glow + animated gradient border. */
+/** Light glassmorphic card with optional 3D tilt + soft glow. */
 export function GlassCard({
   className,
   glow = "blue",
@@ -22,8 +22,8 @@ export function GlassCard({
 
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  const rx = useSpring(useTransform(my, [-0.5, 0.5], [8, -8]), { stiffness: 200, damping: 20 });
-  const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-8, 8]), { stiffness: 200, damping: 20 });
+  const rx = useSpring(useTransform(my, [-0.5, 0.5], [6, -6]), { stiffness: 200, damping: 20 });
+  const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-6, 6]), { stiffness: 200, damping: 20 });
 
   useEffect(() => {
     setPointerFine(window.matchMedia("(hover: hover) and (pointer: fine)").matches);
@@ -42,20 +42,20 @@ export function GlassCard({
     my.set(0);
   };
 
-  const glowClass =
-    glow === "blue" ? "hover:glow-blue" :
-    glow === "purple" ? "hover:glow-purple" :
-    glow === "cyan" ? "hover:glow-cyan" : "";
+  const hoverGlow =
+    glow === "blue" ? "hover:shadow-[0_30px_70px_-30px_rgba(99,102,241,0.45)]" :
+    glow === "purple" ? "hover:shadow-[0_30px_70px_-30px_rgba(139,92,246,0.45)]" :
+    glow === "cyan" ? "hover:shadow-[0_30px_70px_-30px_rgba(6,182,212,0.45)]" : "";
 
   return (
     <motion.div
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      style={tilt && pointerFine ? { rotateX: rx, rotateY: ry, transformPerspective: 1000 } : undefined}
+      style={tilt && pointerFine ? { rotateX: rx, rotateY: ry, transformPerspective: 1200 } : undefined}
       className={cn(
-        "glass gradient-border rounded-2xl p-6 transition-shadow duration-500",
-        glowClass,
+        "relative rounded-3xl bg-white/80 backdrop-blur-xl border border-foreground/8 p-6 shadow-soft transition-all duration-500 hover:-translate-y-1 hover:border-primary/20",
+        hoverGlow,
         className
       )}
       {...(rest as any)}

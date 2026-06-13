@@ -173,7 +173,7 @@ function ContactPage() {
 }
 
 const inputCls =
-  "w-full rounded-xl bg-white/5 border border-white/10 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 px-4 py-3 text-sm placeholder:text-muted-foreground/70 transition-all";
+  "w-full rounded-xl bg-white border border-foreground/10 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 px-4 py-3 text-sm placeholder:text-muted-foreground/70 transition-all shadow-soft";
 
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (

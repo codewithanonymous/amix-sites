@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-/** Cursor-following radial spotlight. Pointer devices only. */
+/** Cursor-following radial spotlight. Pointer devices only. Light-theme tuned. */
 export function Spotlight({ className = "" }: { className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [enabled, setEnabled] = useState(false);
@@ -33,7 +33,7 @@ export function Spotlight({ className = "" }: { className?: string }) {
       className={`pointer-events-none absolute inset-0 ${className}`}
       style={{
         background:
-          "radial-gradient(600px circle at var(--x,50%) var(--y,50%), oklch(0.82 0.16 200 / 0.12), transparent 60%)",
+          "radial-gradient(600px circle at var(--x,50%) var(--y,50%), rgba(99,102,241,0.10), transparent 60%)",
       }}
     />
   );

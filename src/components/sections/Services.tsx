@@ -5,12 +5,12 @@ import { GlassCard } from "@/components/fx/GlassCard";
 import { SectionHeading } from "@/components/fx/SectionHeading";
 
 const services = [
-  { icon: Code2, title: "Web Development", desc: "Business sites, dashboards, e-commerce, full-stack apps.", glow: "blue" as const },
-  { icon: Layers, title: "SaaS Product Development", desc: "Subscription platforms, CRMs, multi-tenant systems.", glow: "purple" as const },
-  { icon: QrCode, title: "Restaurant QR Ordering", desc: "QR menus, table ordering, kitchen dashboard, billing.", glow: "cyan" as const },
-  { icon: Users, title: "HRM Software", desc: "Employees, attendance, payroll, leave management.", glow: "blue" as const },
-  { icon: GraduationCap, title: "School Management", desc: "Student portal, fees, parents, staff, exams.", glow: "purple" as const },
-  { icon: Cloud, title: "Cloud Services", desc: "AWS deployment, VPS hosting, scaling, DevOps.", glow: "cyan" as const },
+  { icon: Code2, title: "Web Development", desc: "Business sites, dashboards, e-commerce, full-stack apps.", glow: "blue" as const, color: "from-indigo-500 to-blue-500" },
+  { icon: Layers, title: "SaaS Product Development", desc: "Subscription platforms, CRMs, multi-tenant systems.", glow: "purple" as const, color: "from-violet-500 to-fuchsia-500" },
+  { icon: QrCode, title: "Restaurant QR Ordering", desc: "QR menus, table ordering, kitchen dashboard, billing.", glow: "cyan" as const, color: "from-cyan-500 to-teal-500" },
+  { icon: Users, title: "HRM Software", desc: "Employees, attendance, payroll, leave management.", glow: "blue" as const, color: "from-indigo-500 to-sky-500" },
+  { icon: GraduationCap, title: "School Management", desc: "Student portal, fees, parents, staff, exams.", glow: "purple" as const, color: "from-purple-500 to-pink-500" },
+  { icon: Cloud, title: "Cloud Services", desc: "AWS deployment, VPS hosting, scaling, DevOps.", glow: "cyan" as const, color: "from-teal-500 to-cyan-500" },
 ];
 
 export function Services() {
@@ -19,7 +19,7 @@ export function Services() {
       <BlurReveal>
         <SectionHeading
           eyebrow="What We Do"
-          title={<>Software built to <span className="gradient-text">move your business</span> forward</>}
+          title={<>Software built to <em className="italic gradient-text-static">move your business</em> forward</>}
           subtitle="Six focused practices. One integrated team."
         />
       </BlurReveal>
@@ -31,12 +31,12 @@ export function Services() {
             <BlurReveal key={s.title} delay={i * 0.06}>
               <GlassCard glow={s.glow} className="h-full">
                 <div className="flex items-start gap-4">
-                  <span className="inline-flex size-12 items-center justify-center rounded-xl bg-cyber/20 border border-white/10 glow-blue">
-                    <Icon className="size-5 text-foreground" />
+                  <span className={`inline-flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br ${s.color} text-white shadow-[0_10px_24px_-10px_rgba(99,102,241,0.55)]`}>
+                    <Icon className="size-5" />
                   </span>
                   <div className="flex-1">
-                    <h3 className="font-display text-xl font-semibold">{s.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+                    <h3 className="font-sans text-lg font-semibold text-foreground">{s.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
               </GlassCard>
@@ -46,7 +46,7 @@ export function Services() {
       </div>
 
       <div className="mt-10 text-center">
-        <Link to="/services" className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/90 hover:text-foreground">
+        <Link to="/services" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all">
           Explore all services <ArrowUpRight className="size-4" />
         </Link>
       </div>

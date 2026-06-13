@@ -11,20 +11,19 @@ const stats = [
 export function Stats() {
   return (
     <section className="relative py-20" aria-label="By the numbers">
-      <div aria-hidden className="absolute inset-0 grid-bg opacity-40 [mask-image:linear-gradient(180deg,transparent,black_30%,black_70%,transparent)]" />
-      <div className="relative mx-auto max-w-7xl px-4">
+      <div className="relative mx-auto max-w-6xl px-4">
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
           {stats.map((s, i) => (
             <BlurReveal key={s.label} delay={i * 0.08}>
-              <div className="glass gradient-border rounded-2xl p-5 md:p-7 text-center hover:glow-blue transition-shadow duration-500">
-                <div className="font-display text-3xl md:text-5xl font-bold gradient-text">
+              <div className="rounded-3xl bg-white border border-foreground/8 p-6 md:p-8 text-center shadow-soft hover:shadow-[0_24px_60px_-24px_rgba(99,102,241,0.30)] hover:-translate-y-1 transition-all duration-500">
+                <div className="font-display text-4xl md:text-5xl gradient-text-static">
                   {s.value % 1 === 0 ? (
                     <AnimatedCounter value={s.value} suffix={s.suffix} />
                   ) : (
                     <>99.9{s.suffix.replace("%","")}<span>%</span></>
                   )}
                 </div>
-                <div className="mt-2 text-xs md:text-sm text-muted-foreground tracking-wider uppercase">
+                <div className="mt-2 text-[11px] md:text-xs text-muted-foreground tracking-[0.18em] uppercase font-semibold">
                   {s.label}
                 </div>
               </div>

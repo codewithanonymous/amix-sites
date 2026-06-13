@@ -21,11 +21,11 @@ type ButtonProps = CommonProps & {
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-cyber text-primary-foreground glow-blue hover:shadow-[0_0_60px_-10px_oklch(0.68_0.22_265/0.9)]",
+    "bg-cyber text-white shadow-[0_10px_30px_-10px_rgba(99,102,241,0.6)] hover:shadow-[0_14px_36px_-8px_rgba(139,92,246,0.7)]",
   glass:
-    "glass gradient-border text-foreground hover:glow-purple",
+    "bg-white border border-foreground/8 text-foreground hover:border-primary/30 hover:text-primary shadow-soft",
   ghost:
-    "text-foreground/80 hover:text-foreground hover:bg-white/5",
+    "text-foreground/75 hover:text-foreground hover:bg-foreground/5",
 };
 
 function useMagnetic() {
@@ -39,8 +39,8 @@ function useMagnetic() {
   const onMove = (e: React.MouseEvent) => {
     if (!enabled || !ref.current) return;
     const r = ref.current.getBoundingClientRect();
-    x.set((e.clientX - (r.left + r.width / 2)) * 0.25);
-    y.set((e.clientY - (r.top + r.height / 2)) * 0.25);
+    x.set((e.clientX - (r.left + r.width / 2)) * 0.2);
+    y.set((e.clientY - (r.top + r.height / 2)) * 0.2);
   };
   const onLeave = () => { x.set(0); y.set(0); };
   return { ref, x, y, onMove, onLeave };
@@ -50,7 +50,7 @@ export function MagneticButton(props: LinkProps | AnchorProps | ButtonProps) {
   const { variant = "primary", className, children } = props;
   const m = useMagnetic();
   const base =
-    "relative inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-300 will-change-transform";
+    "relative inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-tight transition-all duration-300 will-change-transform hover:-translate-y-0.5";
 
   const inner = (
     <motion.span
