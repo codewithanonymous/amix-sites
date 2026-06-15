@@ -6,52 +6,42 @@ import { SectionHeading } from "@/components/fx/SectionHeading";
 
 export function ProjectsGrid() {
   return (
-    <section id="projects" className="relative py-24 md:py-32 scroll-mt-24" aria-label="Recent projects">
+    <section id="projects" className="relative py-20 md:py-28 scroll-mt-24" aria-label="Recent projects">
       <div aria-hidden className="absolute inset-0 bg-iris-soft opacity-50" />
       <div className="relative">
         <BlurReveal>
           <SectionHeading
             eyebrow="Recent Projects"
             title={<>Products & platforms <em className="italic gradient-text-static">we've shipped</em></>}
-            subtitle="A quick look at the systems we build for modern businesses. Open any project for the full case study."
+            subtitle="A quick look at the systems we build for modern businesses."
           />
         </BlurReveal>
 
-        <div className="mx-auto mt-14 grid max-w-7xl gap-6 px-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-10 md:mt-14 grid max-w-7xl gap-4 px-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {projects.map((p, i) => (
-            <BlurReveal key={p.slug} delay={i * 0.05}>
+            <BlurReveal key={p.slug} delay={i * 0.04}>
               <Link
                 to="/projects/$slug"
                 params={{ slug: p.slug }}
-                className="group block h-full rounded-3xl bg-white/85 backdrop-blur-xl border border-foreground/8 shadow-soft hover:shadow-[0_30px_70px_-30px_rgba(99,102,241,0.35)] hover:border-primary/25 hover:-translate-y-1 transition-all duration-500 overflow-hidden"
+                className="group flex h-full flex-col rounded-2xl bg-white/85 backdrop-blur-xl border border-foreground/8 shadow-soft hover:shadow-[0_24px_50px_-22px_rgba(99,102,241,0.4)] hover:border-primary/30 hover:-translate-y-1 active:scale-[0.98] transition-all duration-400 overflow-hidden"
               >
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="relative aspect-[5/3] overflow-hidden">
                   <img
                     src={p.image}
-                    alt={`${p.name} — ${p.category} preview`}
+                    alt={`${p.name} — ${p.category}`}
                     loading="lazy"
                     decoding="async"
-                    width={1600}
-                    height={1000}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-transparent" />
-                  <span className="absolute top-3 left-3 rounded-full bg-white/90 backdrop-blur px-2.5 py-1 text-[10px] font-semibold tracking-[0.16em] uppercase text-foreground/80 shadow-soft">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  <span className="absolute top-2 left-2 rounded-full bg-white/90 backdrop-blur px-2 py-0.5 text-[9px] font-semibold tracking-[0.14em] uppercase text-foreground/80 shadow-soft">
                     {p.category}
                   </span>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-display text-2xl text-foreground leading-tight">{p.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{p.tagline}</p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {p.tech.slice(0, 3).map((t) => (
-                      <span key={t} className="rounded-full bg-foreground/[0.04] px-2.5 py-1 text-[11px] font-medium text-foreground/70 border border-foreground/8">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
-                    View Details <ArrowUpRight className="size-4" />
+                <div className="flex flex-1 flex-col p-3 md:p-4">
+                  <h3 className="font-display text-[15px] md:text-base text-foreground leading-tight line-clamp-2">{p.name}</h3>
+                  <div className="mt-auto pt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary group-hover:gap-1.5 transition-all">
+                    View Details <ArrowUpRight className="size-3.5" />
                   </div>
                 </div>
               </Link>
