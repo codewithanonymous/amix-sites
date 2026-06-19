@@ -96,7 +96,7 @@ export const projects: Project[] = [
       "Centralized records — exportable any time",
       "Works across multiple branches",
     ],
-    demoUrl: "https://demo.example.com/school-erp",
+    demoUrl: "https://schooldemo-amixsites.vercel.app/",
   },
   {
     slug: "hrm-software",
