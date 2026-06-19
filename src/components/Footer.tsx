@@ -141,7 +141,7 @@ const quickActions = [
   {
     icon: Phone,
     label: "Call",
-    href: "tel:+919876543210",
+    href: "tel:+919246891902",
     gradient: "from-emerald-400 to-teal-500",
   },
   {
