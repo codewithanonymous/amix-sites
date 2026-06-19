@@ -147,20 +147,54 @@ function ProjectDetail() {
                 </div>
               </BlurReveal>
 
+              {project.showcase && (
+                <BlurReveal delay={0.08}>
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    transition={{ type: "spring", stiffness: 240, damping: 22 }}
+                    className="relative overflow-hidden rounded-3xl border border-white/40 bg-white/70 backdrop-blur-xl p-6 shadow-[0_24px_60px_-24px_rgba(99,102,241,0.35)]"
+                  >
+                    <div aria-hidden className="absolute -top-16 -right-16 size-48 rounded-full bg-gradient-to-br from-primary/30 via-fuchsia-400/20 to-cyan-400/20 blur-3xl" />
+                    <div className="relative">
+                      <div className="inline-flex items-center gap-1.5 rounded-full bg-foreground/[0.04] border border-foreground/8 px-2.5 py-1 text-[10px] font-semibold tracking-[0.18em] uppercase text-foreground/70">
+                        <Layers className="size-3" /> Interactive Showcase
+                      </div>
+                      <h3 className="mt-3 font-display text-2xl text-foreground">{project.showcase.title}</h3>
+                      <ul className="mt-4 space-y-2">
+                        {project.showcase.highlights.map((h) => (
+                          <li key={h} className="flex items-center gap-2 text-sm text-foreground/85">
+                            <CheckCircle2 className="size-4 text-primary shrink-0" /> {h}
+                          </li>
+                        ))}
+                      </ul>
+                      <motion.button
+                        whileTap={{ scale: 0.97 }}
+                        onClick={() => setShowcaseOpen(true)}
+                        className="mt-5 inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-primary via-fuchsia-500 to-cyan-500 px-5 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_-18px_rgba(168,85,247,0.6)] hover:shadow-[0_22px_50px_-18px_rgba(168,85,247,0.75)] transition-shadow"
+                      >
+                        <Sparkles className="size-4" /> {project.showcase.ctaLabel}
+                      </motion.button>
+                    </div>
+                  </motion.div>
+                </BlurReveal>
+              )}
+
               <BlurReveal delay={0.1}>
                 <div className="rounded-3xl bg-cyber p-6 text-white shadow-[0_24px_60px_-20px_rgba(99,102,241,0.55)]">
                   <h3 className="font-display text-2xl">Like what you see?</h3>
                   <p className="mt-1.5 text-sm text-white/85">Let's build something similar — or even better — for your business.</p>
                   <div className="mt-5 flex flex-col gap-2.5">
                     {project.demoUrl && (
-                      <a
+                      <motion.a
+                        whileHover={{ y: -2 }}
+                        whileTap={{ scale: 0.97 }}
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-1.5 rounded-full bg-white text-foreground px-5 py-3 text-sm font-semibold hover:-translate-y-0.5 transition-transform"
+                        className="inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-white via-cyan-100 to-fuchsia-100 text-foreground px-5 py-3 text-sm font-semibold shadow-[0_18px_40px_-18px_rgba(255,255,255,0.6)]"
                       >
                         <ExternalLink className="size-4" /> View Live Demo
-                      </a>
+                      </motion.a>
                     )}
                     <Link
                       to="/contact"
