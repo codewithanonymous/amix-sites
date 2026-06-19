@@ -44,7 +44,7 @@ export const projects: Project[] = [
       "Plug-and-play payments (Stripe, Razorpay, PayPal)",
       "Scales from 10 to 10,000+ SKUs",
     ],
-    demoUrl: "https://demo.example.com/ecommerce",
+    demoUrl: "https://maison-rose-six.vercel.app/",
   },
   {
     slug: "restaurant-pos",
