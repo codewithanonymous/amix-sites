@@ -70,7 +70,7 @@ export const projects: Project[] = [
       "Owner dashboard works from anywhere",
       "Reduces billing errors to near-zero",
     ],
-    demoUrl: "https://demo.example.com/restaurant-qr",
+    demoUrl: "https://dineinflowd.vercel.app/login",
   },
   {
     slug: "school-management",
