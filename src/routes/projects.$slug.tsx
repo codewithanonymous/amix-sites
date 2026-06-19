@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight, CalendarCheck, CheckCircle2, ExternalLink, Sparkles } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowLeft, ArrowUpRight, CalendarCheck, CheckCircle2, ExternalLink, Layers, Sparkles, X } from "lucide-react";
 import { getProject, projects, type Project } from "@/config/projects";
 import { BlurReveal } from "@/components/fx/BlurReveal";
 import { GradientMesh } from "@/components/fx/GradientMesh";
