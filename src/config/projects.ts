@@ -1,3 +1,10 @@
+export type Showcase = {
+  title: string;
+  highlights: string[];
+  ctaLabel: string;
+  sections: { title: string; description: string; items: string[] }[];
+};
+
 export type Project = {
   slug: string;
   name: string;
@@ -9,6 +16,7 @@ export type Project = {
   features: string[];
   benefits: string[];
   demoUrl?: string;
+  showcase?: Showcase;
 };
 
 export const projects: Project[] = [
