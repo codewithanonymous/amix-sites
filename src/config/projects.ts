@@ -169,7 +169,28 @@ export const projects: Project[] = [
       "PDF receipts generated instantly",
       "Cuts manual collection effort by 70%",
     ],
-    demoUrl: "https://demo.example.com/fees",
+    showcase: {
+      title: "Fee Management Suite",
+      highlights: ["Fee Collection", "Online Payments", "Due Tracking", "Automated Receipts"],
+      ctaLabel: "See Module Overview",
+      sections: [
+        {
+          title: "Collection & Payments",
+          description: "Accept fees the way parents prefer to pay.",
+          items: ["UPI, cards, net banking, wallets", "Partial payments & installments", "Auto-reconciliation with ledger", "Concessions & scholarships"],
+        },
+        {
+          title: "Due Tracking",
+          description: "Never chase a payment manually again.",
+          items: ["Automated SMS + email reminders", "Class / batch level dashboards", "Parent payment history", "Aging reports for finance"],
+        },
+        {
+          title: "Receipts & Reports",
+          description: "Compliance-ready paperwork, generated instantly.",
+          items: ["Branded PDF receipts", "GST & tax-ready exports", "Daily collection reports", "Audit logs for every transaction"],
+        },
+      ],
+    },
   },
   {
     slug: "saas-product-development",
