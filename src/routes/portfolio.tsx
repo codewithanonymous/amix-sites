@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Portfolio } from "@/components/sections/Portfolio";
+import { FeaturedEcommerce } from "@/components/sections/FeaturedEcommerce";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { CTAStrip } from "@/components/sections/CTAStrip";
 import { GradientMesh } from "@/components/fx/GradientMesh";
@@ -36,6 +37,7 @@ function PortfolioPage() {
         </div>
       </section>
       <Portfolio />
+      <FeaturedEcommerce />
       <Testimonials />
       <CTAStrip />
     </>

@@ -5,6 +5,7 @@ import { Services } from "@/components/sections/Services";
 import { TechStack } from "@/components/sections/TechStack";
 import { ParallaxShowcase } from "@/components/sections/ParallaxShowcase";
 import { ProjectsGrid } from "@/components/sections/ProjectsGrid";
+import { FeaturedEcommerce } from "@/components/sections/FeaturedEcommerce";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { CTAStrip } from "@/components/sections/CTAStrip";
 import { FloatingProjectsCTA } from "@/components/fx/FloatingProjectsCTA";
@@ -30,6 +31,7 @@ function Index() {
       <Stats />
       <Services />
       <ProjectsGrid />
+      <FeaturedEcommerce />
       <TechStack />
       <ParallaxShowcase />
       <Testimonials />

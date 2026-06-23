@@ -164,6 +164,10 @@
   70% { box-shadow: 0 0 0 18px oklch(0.60 0.21 275 / 0); }
   100% { box-shadow: 0 0 0 0 oklch(0.60 0.21 275 / 0); }
 }
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
 
 @layer base {
   * { border-color: var(--color-border); }
